@@ -6,9 +6,9 @@ from flask_cors import CORS
 from flask_hal import HAL
 from flask_restful import Api
 
-from messages import AMQPListener, MessageDispatcher
-from resources import Example, ExamplesList
-from service import ExampleService
+from tutorial.messages import AMQPListener, MessageDispatcher
+from tutorial.resources import Example, ExamplesList
+from tutorial.service import ExampleService
 
 if __name__ == '__main__':
     config: ConfigParser = ConfigParser()

@@ -1,4 +1,3 @@
-import json
 from threading import Thread
 from typing import Callable
 
@@ -7,7 +6,7 @@ from pika.adapters.blocking_connection import BlockingChannel
 from pika.exchange_type import ExchangeType
 from pika.spec import Basic, BasicProperties
 
-from service import ExampleService
+from tutorial.service import ExampleService
 
 OnMessageListener = Callable[[BlockingChannel, Basic.Deliver, BasicProperties, bytes], None]
 
@@ -75,4 +74,3 @@ class MessageDispatcher:
         if method.routing_key == 'document.event.deleted':
             pass
         channel.basic_ack(delivery_tag=method.delivery_tag)
-

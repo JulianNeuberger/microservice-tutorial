@@ -5,7 +5,7 @@ from eventsourcing.application import Application, ProcessEvent, AggregateNotFou
 from eventsourcing.domain import AggregateEvent
 from eventsourcing.system import Follower
 
-from domain import Example, ExampleQueryModel
+from tutorial.domain import Example, ExampleQueryModel
 
 
 class Examples(Application):

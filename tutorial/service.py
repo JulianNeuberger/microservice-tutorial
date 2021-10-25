@@ -3,8 +3,8 @@ from uuid import UUID
 
 from eventsourcing.system import System, SingleThreadedRunner
 
-from application import Examples, ExamplesIndex
-from domain import Example
+from tutorial.application import Examples, ExamplesIndex
+from tutorial.domain import Example
 
 
 class ExampleService:

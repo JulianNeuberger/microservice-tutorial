@@ -2,10 +2,10 @@ from typing import List
 
 from flask import request
 from flask_hal.document import Document, Embedded, BaseDocument
-from flask_hal.link import Collection, Link, Self
+from flask_hal.link import Collection, Link
 
-from domain import Example
-from service import ExampleService
+from tutorial.domain import Example
+from tutorial.service import ExampleService
 
 
 class ExampleSerializer:
