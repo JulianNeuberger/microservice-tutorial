@@ -66,7 +66,7 @@ class Examples(Application):
         # we will load an instance of `Example`, so we type hint the
         # variable `example`, to get proper IDE support
         example: Example = self.repository.get(example_id)
-        example.name = new_name
+        example.update_name(new_name)
         self.save(example)
 
     def delete_one(self, example_id: UUID) -> None:

@@ -179,7 +179,8 @@ class ExampleQueryModel(Aggregate):
             # removing all references to the removed example, could be
             # improved performance-wise by holding a second dictionary
             for links in aggregate.reversed_related_index.values():
-                links.remove(self.example_id)
+                if self.example_id in links:
+                    links.remove(self.example_id)
 
     class AddLinkToModel(AggregateEvent):
         owner_id: UUID

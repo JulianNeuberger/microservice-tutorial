@@ -42,9 +42,7 @@ class Example(Resource):
             abort_missing_parameter('name')
 
         name = body.get('name', None)
-        self._service.update(example_id, name)
-
-        example = self._service.get_one(example_id)
+        example = self._service.update(example_id, name)
         return self._serializer.serialize_single(example)
 
     def delete(self, example_id):

@@ -45,8 +45,6 @@ class ExampleSerializer:
                 'related': Embedded(serialized_related)
             }
 
-        print(request.url)
-
         return BaseDocument(
             data={
                 'id': example.id.hex,
