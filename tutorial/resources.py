@@ -21,6 +21,8 @@ class Example(Resource):
 
     def get(self, example_id: str):
         example = self._service.get_one(example_id)
+        if example.deleted:
+            return abort(404)
         return self._serializer.serialize_single(example)
 
     def patch(self, example_id: str):
@@ -31,6 +33,8 @@ class Example(Resource):
 
         try:
             example = self._service.get_one(example_id)
+            if example.deleted:
+                return abort(404)
         except AggregateNotFound:
             return abort(404)
 
@@ -44,6 +48,9 @@ class Example(Resource):
         return self._serializer.serialize_single(example)
 
     def delete(self, example_id):
+        example = self._service.get_one(example_id)
+        if example.deleted:
+            return abort(404)
         self._service.delete(example_id)
 
 

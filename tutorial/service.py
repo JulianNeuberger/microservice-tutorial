@@ -50,10 +50,11 @@ class ExampleService:
         example_id = examples.create(name)
         return example_id
 
-    def update(self, examples_id: str, name: str) -> None:
+    def update(self, example_id: str, name: str) -> Example:
         examples = self._runner.get(Examples)
-        examples_id = UUID(examples_id)
-        examples.update_one(examples_id, name)
+        example_id = UUID(example_id)
+        examples.update_one(example_id, name)
+        return examples.get_one(example_id)
 
     def delete(self, example_id: str) -> None:
         examples = self._runner.get(Examples)
